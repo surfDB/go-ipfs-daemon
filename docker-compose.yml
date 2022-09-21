@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  ipfs:
+    build: .
+    ports:
+      - "5001:5001"
+      - "8011:8011"
+    volumes:
+      - ./ipfs:/data/ipfs
+    environment:
+      - IPFS_ENABLE_S3=true
+      - IPFS_S3_REGION=sgp1
+      - IPFS_S3_BUCKET_NAME=bucket
+      - IPFS_S3_ROOT_DIRECTORY=test
+      - IPFS_S3_ACCESS_KEY_ID=DO003P2776P8AFLRNWZN
+      - IPFS_S3_SECRET_ACCESS_KEY=rNf4KQ0eRqkIP9wnMFQl1521kWxwba+oI71cX1dylnw
+      - IPFS_S3_REGION_ENDPOINT=sgp1.digitaloceanspaces.com
+      - IPFS_S3_Key_TRANSFORM=next-to-last/2
+
+volumes:
+  ipfs:
